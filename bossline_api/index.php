@@ -117,7 +117,7 @@ switch (ENVIRONMENT)
 }
 
 //define('ISTESTMODE', $_SERVER['HTTP_HOST'] == "localhost:8000" || $_SERVER['HTTP_HOST'] == "dsapi.mintspeaking.com" ? true : false);
-define('ISTESTMODE', $_SERVER['HTTP_HOST'] == "localhost:8000" ? true : false);
+define('ISTESTMODE', $_SERVER['HTTP_HOST'] == "localhost:9000" ? true : false);
 
 /*
  *---------------------------------------------------------------

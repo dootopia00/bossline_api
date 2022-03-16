@@ -384,7 +384,7 @@ function set_new_or_old_url($url, $is_mobile=false)
     //url이 빈값일 경우 메인으로
     if($url == '') $url = '/#/main';
 
-    if($_SERVER['HTTP_HOST'] == 'localhost:8000')
+    if($_SERVER['HTTP_HOST'] == 'localhost:9000')
     {
         if(strpos($url,"/#/") !== false)
             $domain = 'http://localhost:8001';

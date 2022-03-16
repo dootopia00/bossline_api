@@ -8099,4 +8099,25 @@ $config = array(
             )
         ) 
     ),
+
+
+
+
+
+
+
+
+
+
+    "test/get_" => array(
+        
+        array(
+            'field' => 'order',
+            'label' => 'order',
+            'rules' => 'required',
+            'errors' => array(
+                'required' => 'order 를 확인해주세요.'
+            )
+        ) 
+    ),
 );

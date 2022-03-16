@@ -20,7 +20,7 @@ if($_SERVER['HTTP_HOST'])
     switch($_SERVER['HTTP_HOST'])
     {
         /* 로컬환경일때 > 개발DB연결(공인IP) */
-        case "localhost:8000":
+        case "localhost:9000":
             // // dev DB
             // $master_ip = '211.252.87.110';
             // $slave_ip = '211.252.87.110';
@@ -83,18 +83,24 @@ else
 // $config['master_db']['addr'] = '211.43.14.34';          //마스터 디비 공인IP
 // $config['master_db']['addr'] = '172.27.0.136';          //마스터 디비 내부IP
 $config['master_db']['addr'] = $master_ip;     //개발 디비
-$config['master_db']['user'] = 'root';
-$config['master_db']['pass'] = '9a8mN6mXPXXU';
+$config['master_db']['user'] = 'bossline_db';
+$config['master_db']['pass'] = 'bosslinedev';
 
 
 // $config['slave_db']['addr'] = '211.43.14.34';           //마스터 디비 공인IP
 // $config['slave_db']['addr'] = '172.27.0.136';           //마스터 디비 내부IP
 $config['slave_db']['addr'] = $slave_ip;      //개발 디비
-$config['slave_db']['user'] = 'root';
-$config['slave_db']['pass'] = '9a8mN6mXPXXU';
+$config['slave_db']['user'] = 'bossline_db';
+$config['slave_db']['pass'] = 'bosslinedev';
 
 
 
 $config['dsn']=array();
-$config['dsn']['master']  = 'mysql://'.$config['master_db']['user'].':'.$config['master_db']['pass'].'@'.$config['master_db']['addr'].'/db_acephone?char_set=euckr&dbcollat=euckr_korean_ci&dbdriver=mysqli';
-$config['dsn']['slave']   = 'mysql://'.$config['slave_db']['user'].':'.$config['slave_db']['pass'].'@'.$config['slave_db']['addr'].'/db_acephone?char_set=euckr&dbcollat=euckr_korean_ci&dbdriver=mysqli';
+// $config['dsn']['master']  = 'mysql://'.$config['master_db']['user'].':'.$config['master_db']['pass'].'@'.$config['master_db']['addr'].'/db_acephone?char_set=euckr&dbcollat=euckr_korean_ci&dbdriver=mysqli';
+// $config['dsn']['slave']   = 'mysql://'.$config['slave_db']['user'].':'.$config['slave_db']['pass'].'@'.$config['slave_db']['addr'].'/db_acephone?char_set=euckr&dbcollat=euckr_korean_ci&dbdriver=mysqli';
+
+// $config['dsn']['master']  = 'pgsql://'.$config['master_db']['user'].':'.$config['master_db']['pass'].'@'.$config['master_db']['addr'].'/db_acephone?char_set=euckr&dbcollat=euckr_korean_ci&dbdriver=mysqli';
+// $config['dsn']['slave']   = 'pgsql://'.$config['slave_db']['user'].':'.$config['slave_db']['pass'].'@'.$config['slave_db']['addr'].'/db_acephone?char_set=euckr&dbcollat=euckr_korean_ci&dbdriver=mysqli';
+
+$config['dsn']['slave']  = 'pgsql:host=bossline-db.ce5gwofdrutx.ap-northeast-2.rds.amazonaws.com;port=5432;dbname=';
+$config['dsn']['master']  = 'pgsql:host=bossline-db.ce5gwofdrutx.ap-northeast-2.rds.amazonaws.com;port=5432;dbname=';
