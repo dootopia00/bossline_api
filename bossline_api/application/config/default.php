@@ -2,14 +2,7 @@
 if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 
-
-$config['mint_url'] = [
-    'book'      => 'http://mintbook.mint05.com',
-    'old_pc'    => 'http://www.mint05.com',
-    'old_m'     => 'http://m.mint05.com',
-];
-
-$config['web_domain'] = 'https://story.mint05.com';
+$config['bossline_url'] = 'https://bossline.gg';
 
 
 /*
