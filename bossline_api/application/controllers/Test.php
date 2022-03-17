@@ -14,6 +14,7 @@ class Test extends _Base_Controller {
 
     public function get_()
     {
+
         $return_array = array();
 
         $request = array(
