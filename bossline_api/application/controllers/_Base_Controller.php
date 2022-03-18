@@ -12,7 +12,7 @@ class _Base_Controller extends CI_Controller {
         
 	public function __construct()
 	{
-          parent::__construct();
+                parent::__construct();
                 
                 $request_headers        = apache_request_headers();
                 $request_agent =  explode( '/', $request_headers['User-Agent']);

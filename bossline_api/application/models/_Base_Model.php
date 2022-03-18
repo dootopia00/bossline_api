@@ -21,7 +21,7 @@ class _Base_Model extends CI_Model {
 		if (!$this->{'db_'.$db})
 		{ 	
 			$this->{'db_'.$db} = $this->load->database($this->dsn[$db], TRUE);
-			$this->{'db_'.$db}->query("set names utf8");
+			// $this->{'db_'.$db}->query("set names utf8");
 		}
 	}
 	
