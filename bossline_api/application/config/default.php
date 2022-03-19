@@ -2,7 +2,7 @@
 if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 // echo phpinfo();exit;
-$config['bossline_url'] = 'https://bossline.gg';
+// $config['bossline_url'] = 'https://bossline.gg';
 
 
 /*
