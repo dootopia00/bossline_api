@@ -1,6 +1,5 @@
 <?php
 
-echo 'aaaaaaaaaaaaaaaaaaa';exit;
 //점검시간 체크
 $siteCheck_nowTime = time();
 $siteCheck_startTime = strtotime("2020-02-14 00:30:00");
@@ -81,6 +80,7 @@ if($siteCheck_startTime <= $siteCheck_nowTime && $siteCheck_endTime >= $siteChec
  */
 	define('ENVIRONMENT', isset($_SERVER['CI_ENV']) ? $_SERVER['CI_ENV'] : 'development');
 
+	echo $_SERVER['CI_ENV'];exit;
 	
 /*
  *---------------------------------------------------------------
