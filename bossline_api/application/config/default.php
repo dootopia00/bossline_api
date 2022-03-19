@@ -37,9 +37,16 @@ if($_SERVER['HTTP_HOST'])
 
         // 마스터 디비
         case "api.bossline.gg":
-            $master_ip = 'bossline-db.ce5gwofdrutx.ap-northeast-2.rds.amazonaws.com';
-            $slave_ip =  'bossline-db.ce5gwofdrutx.ap-northeast-2.rds.amazonaws.com';
-            $search_ip = 'bossline-db.ce5gwofdrutx.ap-northeast-2.rds.amazonaws.com';
+
+            // dooropen
+            $master_ip = 'dooropen-dev.cx1zesoiaqke.ap-northeast-2.rds.amazonaws.com';
+            $slave_ip = 'dooropen-dev.cx1zesoiaqke.ap-northeast-2.rds.amazonaws.com';
+            $search_ip = 'dooropen-dev.cx1zesoiaqke.ap-northeast-2.rds.amazonaws.com';
+            
+            // bossline
+            // $master_ip = 'bossline-db.ce5gwofdrutx.ap-northeast-2.rds.amazonaws.com';
+            // $slave_ip =  'bossline-db.ce5gwofdrutx.ap-northeast-2.rds.amazonaws.com';
+            // $search_ip = 'bossline-db.ce5gwofdrutx.ap-northeast-2.rds.amazonaws.com';
         break;
 
     }
