@@ -80,7 +80,6 @@ if($siteCheck_startTime <= $siteCheck_nowTime && $siteCheck_endTime >= $siteChec
  */
 	define('ENVIRONMENT', isset($_SERVER['CI_ENV']) ? $_SERVER['CI_ENV'] : 'development');
 
-	echo $_SERVER['CI_ENV'];exit;
 	
 /*
  *---------------------------------------------------------------
