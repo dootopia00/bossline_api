@@ -76,6 +76,9 @@ $config['slave_db']['pass'] = 'bosslinedev';
 
 
 $config['dsn']=array();
+
+######### dbdriver 는 소문자여야함 mysqli/postgre
+
 // dooropen
 // $config['dsn']['master']  = 'mysqli://'.$config['master_db']['user'].':'.$config['master_db']['pass'].'@'.$config['master_db']['addr'].'/dooropen?charset=utf8&DBCollat=utf8_general_ci&dbdriver=mysqli';
 // $config['dsn']['slave']   = 'mysqli://'.$config['slave_db']['user'].':'.$config['slave_db']['pass'].'@'.$config['slave_db']['addr'].'/dooropen?charset=utf8&DBCollat=utf8_general_ci&dbdriver=mysqli';
