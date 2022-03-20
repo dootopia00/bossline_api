@@ -77,8 +77,8 @@ $config['slave_db']['pass'] = 'bosslinedev';
 
 $config['dsn']=array();
 // dooropen
-// $config['dsn']['master']  = 'MySQLi://'.$config['master_db']['user'].':'.$config['master_db']['pass'].'@'.$config['master_db']['addr'].'/dooropen?charset=utf8&DBCollat=utf8_general_ci&dbdriver=mysqli';
-// $config['dsn']['slave']   = 'MySQLi://'.$config['slave_db']['user'].':'.$config['slave_db']['pass'].'@'.$config['slave_db']['addr'].'/dooropen?charset=utf8&DBCollat=utf8_general_ci&dbdriver=mysqli';
+// $config['dsn']['master']  = 'mysqli://'.$config['master_db']['user'].':'.$config['master_db']['pass'].'@'.$config['master_db']['addr'].'/dooropen?charset=utf8&DBCollat=utf8_general_ci&dbdriver=mysqli';
+// $config['dsn']['slave']   = 'mysqli://'.$config['slave_db']['user'].':'.$config['slave_db']['pass'].'@'.$config['slave_db']['addr'].'/dooropen?charset=utf8&DBCollat=utf8_general_ci&dbdriver=mysqli';
 
 // bossline
 $config['dsn']['master']  = 'postgre://'.$config['master_db']['user'].':'.$config['master_db']['pass'].'@'.$config['master_db']['addr'].':5432/postgres?charset=utf8&connect_timeout=5&sslmode=1';
