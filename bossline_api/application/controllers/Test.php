@@ -14,7 +14,14 @@ class Test extends _Base_Controller {
 
     public function get_dooropen()
     {
+
         $return_array = array();
+
+        $return_array['res_code'] = '0000';
+        $return_array['msg'] = "목록조회성공";
+        $return_array['data'] = 'test';
+        echo json_encode($return_array);
+        exit;
 
         $request = array(
             "order" => $this->input->post('order'),
