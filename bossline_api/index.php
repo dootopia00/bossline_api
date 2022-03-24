@@ -1,5 +1,8 @@
 <?php
 
+echo 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa';exit;
+
+
 //점검시간 체크
 $siteCheck_nowTime = time();
 $siteCheck_startTime = strtotime("2020-02-14 00:30:00");
