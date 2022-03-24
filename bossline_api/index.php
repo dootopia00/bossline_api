@@ -1,6 +1,6 @@
 <?php
 
-echo 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa';exit;
+echo 'index aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa';
 
 
 //점검시간 체크
