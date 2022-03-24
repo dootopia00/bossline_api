@@ -1,4 +1,5 @@
 <?php
+echo 'top   ';
 defined('BASEPATH') OR exit('No direct script access allowed');
 require_once APPPATH.'/controllers/_Base_Controller.php';
 
@@ -6,6 +7,7 @@ class Test extends _Base_Controller {
 
     public function __construct()
     {
+        echo 'test construct';
         parent::__construct();
         $this->load->model('test_mdl');
         $this->load->library('form_validation');
