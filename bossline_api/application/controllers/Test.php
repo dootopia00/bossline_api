@@ -16,6 +16,7 @@ class Test extends _Base_Controller {
     {
         $return_array = array();
 
+        
         $request = array(
             "order" => $this->input->post('order'),
         );
