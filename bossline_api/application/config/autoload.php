@@ -89,7 +89,7 @@ $autoload['drivers'] = array();
 |
 |	$autoload['helper'] = array('url', 'file');
 */
-$autoload['helper'] = array('token', 'board', 'member', 'notify', 'common', 'msg', 'tutor', 'base', 'grade', 'lesson', 'point', 'schedule', 'payment', 'mset', 'coupon');
+$autoload['helper'] = array('test', 'base');
 
 /*
 | -------------------------------------------------------------------

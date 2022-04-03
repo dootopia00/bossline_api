@@ -8132,4 +8132,16 @@ $config = array(
             )
         ) 
     ),
+
+    "user/sign_in" => array(
+        
+        array(
+            'field' => 'user_id',
+            'label' => 'user_id',
+            'rules' => 'required',
+            'errors' => array(
+                'required' => 'user_id 를 확인해주세요.'
+            )
+        ) 
+    ),
 );
