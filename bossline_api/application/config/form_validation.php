@@ -8144,4 +8144,17 @@ $config = array(
             )
         ) 
     ),
+    "server/server_list" => array(
+        
+        array(
+            'field' => 'type',
+            'label' => 'type',
+            'rules' => 'required',
+            'errors' => array(
+                'required' => 'type 을 확인해주세요.'
+            )
+        ) 
+    ),
+
+
 );

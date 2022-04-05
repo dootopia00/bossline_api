@@ -2,13 +2,13 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 /* 일반사용자 */
-define('CLIENT_SECRET_KEY', 'devzero');
+define('CLIENT_SECRET_KEY', 'bossline_key');
 define('CLIENT_SECRET_ALGORITHM', 'HS512');
 define('CLIENT_TOKEN_KEY', 'authorization');
 define('CLIENT_DEBUG_KEY', 'develop');
 define('CLIENT_DEBUG_VALUE', 'dev.debug');
 define('CLIENT_DEBUG_PARAM_KEY', 'developparam');
-define('CLIENT_DOMAIN', 'mint05.com');
+define('CLIENT_DOMAIN', 'bossline.gg');
 
 
 /* 강사사용자 */

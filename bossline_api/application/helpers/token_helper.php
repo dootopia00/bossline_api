@@ -7,7 +7,7 @@ use \Firebase\JWT\JWT;
 
 
 
-function token_create_member_token($id,$admin_id='')
+function token_create_member_token($id, $admin_id='')
 {
     $id = strtolower($id);
     $date = new DateTime();
@@ -64,7 +64,7 @@ function token_create_member_token($id,$admin_id='')
 /*
  * request 헤더정보로 token확인
  */
-function token_member_token_validation($req_id, $authorization = null){
+function token_user_token_validation($req_id, $authorization = null){
 
     $req_id = strtolower($req_id);
     $return_array = array();

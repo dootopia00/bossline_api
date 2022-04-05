@@ -12,8 +12,8 @@ defined("BASEPATH") OR exit("No direct script access allowed");
 function base_init()
 {
     $CI =& get_instance();
-  
-    $req_wiz_id = $CI->input->post('wiz_id'); 
+    
+    $req_user_id = $CI->input->post('user_id'); 
     $req_authorization = $CI->input->post('authorization');
     
     /*
@@ -23,24 +23,24 @@ function base_init()
         - 관리자 회원계정 로그인 여부처리
         - 회원 최근 접속시간 갱신
     */
-    if($req_wiz_id && $req_authorization)
+    if($req_user_id && $req_authorization)
     {
         //아이디, 토큰 검증
-        $auth_checked = token_member_token_validation($req_wiz_id, $req_authorization);
+        $auth_checked = token_user_token_validation($req_user_id, $req_authorization);
         
         //아이디, 토큰 검증값이 정상일 경우
         if($auth_checked['res_code'] == '0000')
         {
     
-            $CI->load->model('member_mdl');
+            $CI->load->model('user_mdl');
 
-            $wiz_member = NULL;
+            $bl_user = NULL;
 
             /*
                 회원 정보 
                 - 로그인시 가져오는 정보와 동일 (동일한 함수 사용)
             */ 
-            $wiz_member = $CI->member_mdl->get_wiz_member_by_wiz_id($req_wiz_id);
+            $wiz_member = $CI->member_mdl->get_wiz_member_by_wiz_id($req_user_id);
 
             // 회원 정보 저장
             base_set_wiz_member($wiz_member);
@@ -69,7 +69,7 @@ function base_init()
                 }
 
                  //회원 최근 접속시간 갱신
-                 member_set_last_connect($wiz_member['wm_uid']);
+                member_set_last_connect($wiz_member['wm_uid']);
             }
         }
         else

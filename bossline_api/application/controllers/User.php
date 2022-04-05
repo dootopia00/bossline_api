@@ -8,7 +8,6 @@ class User extends _Base_Controller {
     {
         parent::__construct();
 
-        //한국 시간 설정
         // date_default_timezone_set('Asia/Seoul');
         $this->load->library('form_validation');
     }
@@ -19,8 +18,8 @@ class User extends _Base_Controller {
         $return_array = array();
 
         $request = array(
-            
             "user_id" => trim(strtolower($this->input->post('user_id'))),
+            "email"   => trim(strtolower($this->input->post('email'))),
         );
 
 
@@ -37,40 +36,50 @@ class User extends _Base_Controller {
         $this->load->model('user_mdl');
         
         // 아이디 유무 체크
-        $user = $this->user_mdl->get_user_id($request['user_id']);
+        $user = $this->user_mdl->get_user_id($request['user_id'], $request['email']);
         
         // echo $user;exit;
         
         // 가입된 user_id 가 없으면 회원가입후 sign in
         // 가입된 user_id 가 있으면 바로 로그인
         
+        $user_info = array(
+            "user_id"   => $request['user_id'],
+            "email"     => $request['email'],
+            "type"      => 'kakao',
+            "reg_date"  => date("Y-m-d H:i:s"),
+        );
+
         if($user == NULL){
 
             // 회원가입
-
             
             //인설트 데이터
-            $user = array(
-                "id" => 2,
-                "user_id" => $request['user_id'],
-                "type" => 'kakao',
-                "reg_date" => date("Y-m-d H:i:s"),
-            );
+            $user = $this->user_mdl->insert_user($user_info);
 
-            $user = $this->user_mdl->insert_user($user);
-
+            $return_array['res_code'] = 200;
+            $return_array['msg'] = "회원가입성공";
+            $return_array['data']['info'] = $user;
+            $return_array['data']['api_token'] = token_create_member_token($user['user_id']);
+            echo json_encode($return_array);
+            exit;
+            
         }else{
 
             // 로그인
             
+            $return_array['res_code'] = 200;
+            $return_array['msg'] = "로그인성공";
+            $return_array['data']['info'] = $user;
+            // print_r($user);exit;
+            $return_array['data']['api_token'] = token_create_member_token($user['user_id']);
+            echo json_encode($return_array);
+            exit;
+            
         }
 
 
-        $return_array['res_code'] = '0000';
-        $return_array['msg'] = "목록조회성공";
-        $return_array['data']['info'] = $user;
-        echo json_encode($return_array);
-        exit;
+        
 
     }
 
