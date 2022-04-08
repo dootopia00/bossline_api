@@ -40,7 +40,6 @@ class Server extends _Base_Controller {
         $return_array['msg'] = "조회성공";
         $return_array['data']['list'] = $server_list;
         $return_array['data']['total_count'] = $server_list_count['count'];
-
         echo json_encode($return_array);
         exit;
         

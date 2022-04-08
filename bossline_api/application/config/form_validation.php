@@ -8156,5 +8156,92 @@ $config = array(
         ) 
     ),
 
+    "clan/clan_list" => array(
+        
+        array(
+            'field' => 'type',
+            'label' => 'type',
+            'rules' => 'required',
+            'errors' => array(
+                'required' => 'type 을 확인해주세요.'
+            )
+        ) 
+    ),
+
+    "clan/clan_insert" => array(
+        
+        array(
+            'field' => 'user_id',
+            'label' => 'user_id',
+            'rules' => 'required',
+            'errors' => array(
+                'required' => 'user_id 을 확인해주세요.'
+            )
+        ),
+        array(
+            'field' => 'authorization',
+            'label' => 'authorization',
+            'rules' => 'required',
+            'errors' => array(
+                'required' => 'authorization 을 확인해주세요.'
+            )
+        ),
+        array(
+            'field' => 'name',
+            'label' => 'name',
+            'rules' => 'required',
+            'errors' => array(
+                'required' => 'name 을 확인해주세요.'
+            )
+        ),
+        array(
+            'field' => 'server',
+            'label' => 'server',
+            'rules' => 'required',
+            'errors' => array(
+                'required' => 'server 을 확인해주세요.'
+            )
+        ),
+        array(
+            'field' => 'type',
+            'label' => 'type',
+            'rules' => 'required',
+            'errors' => array(
+                'required' => 'type 을 확인해주세요.'
+            )
+        ),
+        array(
+            'field' => 'level',
+            'label' => 'level',
+            'rules' => 'required',
+            'errors' => array(
+                'required' => 'level 을 확인해주세요.'
+            )
+        ),
+        array(
+            'field' => 'defense',
+            'label' => 'defense',
+            'rules' => 'required',
+            'errors' => array(
+                'required' => 'defense 을 확인해주세요.'
+            )
+        ),
+        array(
+            'field' => 'job',
+            'label' => 'job',
+            'rules' => 'required',
+            'errors' => array(
+                'required' => 'job 을 확인해주세요.'
+            )
+        ),
+        array(
+            'field' => 'description',
+            'label' => 'description',
+            'rules' => 'required',
+            'errors' => array(
+                'required' => 'description 을 확인해주세요.'
+            )
+        ),
+    ),
 
 );
