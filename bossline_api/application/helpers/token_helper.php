@@ -68,7 +68,7 @@ function token_user_token_validation($req_id, $authorization = null){
 
     $req_id = strtolower($req_id);
     $return_array = array();
-    $return_array['res_code'] = "0401";
+    $return_array['res_code'] = 401;
     $return_array['msg'] = '잘못된 접근입니다.';
     $return_array['token'] = null;
 
@@ -77,6 +77,7 @@ function token_user_token_validation($req_id, $authorization = null){
     $request_debug_param = null;
 
     try {
+
         $headers = apache_request_headers();
         
         $return_array['token'] = $headers;
@@ -106,6 +107,7 @@ function token_user_token_validation($req_id, $authorization = null){
                 $decoded = JWT::decode($request_token, CLIENT_SECRET_KEY, array(CLIENT_SECRET_ALGORITHM));
 
                 if($decoded) {
+                    
                     //발급자가 일치하는지 확인 발급기간 체크
 
                     $iat =  $decoded->iat;

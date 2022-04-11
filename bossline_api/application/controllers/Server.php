@@ -25,7 +25,7 @@ class Server extends _Base_Controller {
 
         if($this->form_validation->run() == FALSE)
         {
-            $return_array['res_code'] = '0400';
+            $return_array['res_code'] = 400;
             $return_array['msg'] = current($this->form_validation->error_array());
             echo json_encode($return_array);
             exit;
