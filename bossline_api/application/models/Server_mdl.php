@@ -20,7 +20,7 @@ class Server_mdl extends _Base_Model {
 
         // echo $this->db_slave()->last_query();exit;
 
-        return $res->num_rows() > 0 ? $res->row_array() : NULL;
+        return $res->num_rows() > 0 ? $res->result_array() : NULL;
     }
 
     public function get_server_list_count($type)
