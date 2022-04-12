@@ -42,6 +42,7 @@ class Server extends _Base_Controller {
         
         //인설트 데이터
         $clan = array(
+            "user_id"       => $request['user_id'],
             "name"          => $request['name'],
             "server"        => $request['server'],
             "type"          => $request['type'],
