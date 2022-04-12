@@ -19,13 +19,14 @@ class Server extends _Base_Controller {
         $request = array(
             "user_id"       => trim($this->input->post('user_id')),
             "authorization" => trim($this->input->post('authorization')),
-            "name"          => $this->input->post('name') ? $this->input->post('name') : NULL,
+            "clan_name"     => $this->input->post('clan_name') ? $this->input->post('clan_name') : NULL,
             "server"        => $this->input->post('server') ? $this->input->post('server') : NULL,
             "type"          => $this->input->post('type') ? $this->input->post('type') : NULL,
             "level"         => $this->input->post('level') ? $this->input->post('level') : NULL,
             "defense"       => $this->input->post('defense') ? $this->input->post('defense') : NULL,
             "job"           => $this->input->post('job') ? $this->input->post('job') : NULL,
             "description"   => $this->input->post('description') ? $this->input->post('description') : NULL,
+            "welfare"       => $this->input->post('welfare') ? $this->input->post('welfare') : NULL,
         );
 
         $this->form_validation->set_data($request);
@@ -50,6 +51,7 @@ class Server extends _Base_Controller {
             "defense"       => $request['defense'],
             "job"           => $request['job'],
             "description"   => $request['description'],
+            "welfare"       => $request['welfare'],
             "regdate"       => date("Y-m-d H:i:s"),
         );
 

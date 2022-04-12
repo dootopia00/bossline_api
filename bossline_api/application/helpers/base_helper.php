@@ -29,7 +29,7 @@ function base_init()
         $auth_checked = token_user_token_validation($req_user_id, $req_authorization);
         
         //아이디, 토큰 검증값이 정상일 경우
-        if($auth_checked['res_code'] == '0000')
+        if($auth_checked['res_code'] == 200)
         {
     
             $CI->load->model('user_mdl');

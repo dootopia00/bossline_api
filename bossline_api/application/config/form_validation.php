@@ -8187,11 +8187,11 @@ $config = array(
             )
         ),
         array(
-            'field' => 'name',
-            'label' => 'name',
+            'field' => 'clan_name',
+            'label' => 'clan_name',
             'rules' => 'required',
             'errors' => array(
-                'required' => 'name 을 확인해주세요.'
+                'required' => 'clan_name 을 확인해주세요.'
             )
         ),
         array(
@@ -8208,6 +8208,14 @@ $config = array(
             'rules' => 'required',
             'errors' => array(
                 'required' => 'type 을 확인해주세요.'
+            )
+        ),
+        array(
+            'field' => 'clan_level',
+            'label' => 'clan_level',
+            'rules' => 'required',
+            'errors' => array(
+                'required' => 'clan_level 을 확인해주세요.'
             )
         ),
         array(
@@ -8240,6 +8248,14 @@ $config = array(
             'rules' => 'required',
             'errors' => array(
                 'required' => 'description 을 확인해주세요.'
+            )
+        ),
+        array(
+            'field' => 'welfare',
+            'label' => 'welfare',
+            'rules' => 'required',
+            'errors' => array(
+                'required' => 'welfare 을 확인해주세요.'
             )
         ),
     ),

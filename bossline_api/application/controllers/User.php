@@ -60,7 +60,7 @@ class User extends _Base_Controller {
             $return_array['res_code'] = 200;
             $return_array['msg'] = "회원가입성공";
             $return_array['data']['info'] = $user;
-            $return_array['data']['api_token'] = token_create_member_token($user['user_id']);
+            $return_array['data']['info']['authorization'] = token_create_member_token($user['user_id']);
             echo json_encode($return_array);
             exit;
             
@@ -72,7 +72,7 @@ class User extends _Base_Controller {
             $return_array['msg'] = "로그인성공";
             $return_array['data']['info'] = $user;
             // print_r($user);exit;
-            $return_array['data']['api_token'] = token_create_member_token($user['user_id']);
+            $return_array['data']['info']['authorization'] = token_create_member_token($user['user_id']);
             echo json_encode($return_array);
             exit;
             
