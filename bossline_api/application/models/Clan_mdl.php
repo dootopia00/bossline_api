@@ -42,8 +42,12 @@ class Clan_mdl extends _Base_Model {
 
         $this->db_master()->insert('bl_clan', $clan);
 
+        print_r($this->db_master()->last_query());exit;
+        echo $this->db_master()->last_query();exit;
+        
         $insert_id = $this->db_master()->insert_id();
-        // echo $this->db_master()->last_query();exit;
+        
+        
         $this->db_master()->trans_complete();
 
         if ($this->db_master()->trans_status() === FALSE)

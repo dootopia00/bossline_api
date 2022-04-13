@@ -2,7 +2,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 require_once APPPATH.'/controllers/_Base_Controller.php';
 
-class Server extends _Base_Controller {
+class Clan extends _Base_Controller {
 
     public function __construct()
     {
@@ -20,6 +20,8 @@ class Server extends _Base_Controller {
             "user_id"       => trim($this->input->post('user_id')),
             "authorization" => trim($this->input->post('authorization')),
             "clan_name"     => $this->input->post('clan_name') ? $this->input->post('clan_name') : NULL,
+            "clan_level"    => $this->input->post('clan_level') ? $this->input->post('clan_level') : NULL,
+            "recruit"       => $this->input->post('recruit') ? $this->input->post('recruit') : NULL,
             "server"        => $this->input->post('server') ? $this->input->post('server') : NULL,
             "type"          => $this->input->post('type') ? $this->input->post('type') : NULL,
             "level"         => $this->input->post('level') ? $this->input->post('level') : NULL,
@@ -44,7 +46,9 @@ class Server extends _Base_Controller {
         //인설트 데이터
         $clan = array(
             "user_id"       => $request['user_id'],
-            "name"          => $request['name'],
+            "recruit"       => $request['recruit'],
+            "clan_name"     => $request['clan_name'],
+            "clan_level"    => $request['clan_level'],
             "server"        => $request['server'],
             "type"          => $request['type'],
             "level"         => $request['level'],
@@ -52,7 +56,7 @@ class Server extends _Base_Controller {
             "job"           => $request['job'],
             "description"   => $request['description'],
             "welfare"       => $request['welfare'],
-            "regdate"       => date("Y-m-d H:i:s"),
+            "reg_date"      => date("Y-m-d H:i:s"),
         );
 
         $clan = $this->clan_mdl->insert_clan($clan);
