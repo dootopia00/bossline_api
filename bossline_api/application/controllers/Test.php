@@ -54,6 +54,7 @@ class Test extends _Base_Controller {
 
     public function get_bossline()
     {
+        echo 'aaa';exit;
         $return_array = array();
 
         $request = array(
@@ -77,7 +78,7 @@ class Test extends _Base_Controller {
 
         
         $return_array['res_code'] = '0000';
-        $return_array['msg'] = "목록조회성공 -git pull";
+        $return_array['msg'] = "목록조회성공";
         $return_array['data'] = $row;
         echo json_encode($return_array);
         exit;

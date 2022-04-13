@@ -58,6 +58,47 @@ class Clan_mdl extends _Base_Model {
         return $insert_id;
     }
 
+    public function get_clan_info_by_pk($pk)
+    {
+        $this->db_connect('slave');
+
+        $sql = "SELECT * FROM bl_clan WHERE id = ?";
+
+        $res = $this->db_slave()->query($sql, array($pk));   
+
+        return $res->num_rows() > 0 ? $res->row_array() : NULL;
+    }
+
+    public function modify_clan($request)
+    {
+        $this->db_connect('master');
+
+        $this->db_master()->trans_start();
+
+        $this->db_master()->set('clan_name', $request['clan_name']);
+        $this->db_master()->set('clan_level', $request['clan_level']);
+        $this->db_master()->set('recruit', $request['recruit']);
+        $this->db_master()->set('server', $request['server']);
+        $this->db_master()->set('level', $request['level']);
+        $this->db_master()->set('defense', $request['defense']);
+        $this->db_master()->set('job', $request['job']);
+        $this->db_master()->set('description', $request['description']);
+        $this->db_master()->set('welfare', $request['welfare']);
+        $this->db_master()->where('id', $request['clan_pk']);
+        $this->db_master()->update('bl_clan');
+
+        $this->db_master()->trans_complete();
+
+        if ($this->db_master()->trans_status() === FALSE)
+        {
+            return NULL;
+        }
+
+        return 1;
+
+    }
+    
+    
 
 
 }

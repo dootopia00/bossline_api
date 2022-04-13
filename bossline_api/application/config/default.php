@@ -27,10 +27,15 @@ if($_SERVER['HTTP_HOST'])
             // $slave_ip = 'dooropen-dev.cx1zesoiaqke.ap-northeast-2.rds.amazonaws.com';
             // $search_ip = 'dooropen-dev.cx1zesoiaqke.ap-northeast-2.rds.amazonaws.com';
             
-            // bossline
-            $master_ip = 'bossline-db.ce5gwofdrutx.ap-northeast-2.rds.amazonaws.com';
-            $slave_ip =  'bossline-db.ce5gwofdrutx.ap-northeast-2.rds.amazonaws.com';
-            $search_ip = 'bossline-db.ce5gwofdrutx.ap-northeast-2.rds.amazonaws.com';
+            // bossline maria db
+            $master_ip = 'bossline-maria-db.ce5gwofdrutx.ap-northeast-2.rds.amazonaws.com';
+            $slave_ip =  'bossline-maria-db.ce5gwofdrutx.ap-northeast-2.rds.amazonaws.com';
+            $search_ip = 'bossline-maria-db.ce5gwofdrutx.ap-northeast-2.rds.amazonaws.com';
+            
+            // bossline postgresql
+            // $master_ip = 'bossline-db.ce5gwofdrutx.ap-northeast-2.rds.amazonaws.com';
+            // $slave_ip =  'bossline-db.ce5gwofdrutx.ap-northeast-2.rds.amazonaws.com';
+            // $search_ip = 'bossline-db.ce5gwofdrutx.ap-northeast-2.rds.amazonaws.com';
 
         break;
 
@@ -42,7 +47,12 @@ if($_SERVER['HTTP_HOST'])
             // $slave_ip = 'dooropen-dev.cx1zesoiaqke.ap-northeast-2.rds.amazonaws.com';
             // $search_ip = 'dooropen-dev.cx1zesoiaqke.ap-northeast-2.rds.amazonaws.com';
             
-            // bossline
+            // bossline maria db
+            $master_ip = 'bossline-maria-db.ce5gwofdrutx.ap-northeast-2.rds.amazonaws.com';
+            $slave_ip =  'bossline-maria-db.ce5gwofdrutx.ap-northeast-2.rds.amazonaws.com';
+            $search_ip = 'bossline-maria-db.ce5gwofdrutx.ap-northeast-2.rds.amazonaws.com';
+
+            // bossline postgresql
             $master_ip = 'bossline-db.ce5gwofdrutx.ap-northeast-2.rds.amazonaws.com';
             $slave_ip =  'bossline-db.ce5gwofdrutx.ap-northeast-2.rds.amazonaws.com';
             $search_ip = 'bossline-db.ce5gwofdrutx.ap-northeast-2.rds.amazonaws.com';
@@ -82,7 +92,11 @@ $config['dsn']=array();
 // $config['dsn']['master']  = 'mysqli://'.$config['master_db']['user'].':'.$config['master_db']['pass'].'@'.$config['master_db']['addr'].'/dooropen?charset=utf8&DBCollat=utf8_general_ci&dbdriver=mysqli';
 // $config['dsn']['slave']   = 'mysqli://'.$config['slave_db']['user'].':'.$config['slave_db']['pass'].'@'.$config['slave_db']['addr'].'/dooropen?charset=utf8&DBCollat=utf8_general_ci&dbdriver=mysqli';
 
-// bossline
-$config['dsn']['master']  = 'postgre://'.$config['master_db']['user'].':'.$config['master_db']['pass'].'@'.$config['master_db']['addr'].':5432/postgres?charset=utf8&connect_timeout=5&sslmode=1';
-$config['dsn']['slave']   = 'postgre://'.$config['slave_db']['user'].':'.$config['slave_db']['pass'].'@'.$config['slave_db']['addr'].':5432/postgres?charset=utf8&connect_timeout=5&sslmode=1';
+// bossline maria db
+$config['dsn']['master']  = 'mysqli://'.$config['master_db']['user'].':'.$config['master_db']['pass'].'@'.$config['master_db']['addr'].'/bossline?charset=utf8&DBCollat=utf8_general_ci&dbdriver=mysqli';
+$config['dsn']['slave']   = 'mysqli://'.$config['slave_db']['user'].':'.$config['slave_db']['pass'].'@'.$config['slave_db']['addr'].'/bossline?charset=utf8&DBCollat=utf8_general_ci&dbdriver=mysqli';  
+
+// bossline postgresql 
+// $config['dsn']['master']  = 'postgre://'.$config['master_db']['user'].':'.$config['master_db']['pass'].'@'.$config['master_db']['addr'].':5432/postgres?charset=utf8&connect_timeout=5&sslmode=1';
+// $config['dsn']['slave']   = 'postgre://'.$config['slave_db']['user'].':'.$config['slave_db']['pass'].'@'.$config['slave_db']['addr'].':5432/postgres?charset=utf8&connect_timeout=5&sslmode=1';
 

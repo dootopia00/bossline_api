@@ -83,6 +83,44 @@ class User extends _Base_Controller {
 
     }
 
+
+    public function get_user_info()
+    {
+        $return_array = array();
+
+        $request = array(
+            "user_pk"       => $this->input->post('user_pk') ? $this->input->post('user_pk') : NULL,
+        );
+
+        $this->form_validation->set_data($request);
+
+        if($this->form_validation->run() == FALSE)
+        {
+            $return_array['res_code'] = 400;
+            $return_array['msg'] = current($this->form_validation->error_array());
+            echo json_encode($return_array);
+            exit;
+        }
+
+        $this->load->model('clan_mdl');
+        $clan = $this->clan_mdl->get_clan_info_by_pk($request['clan_pk']);
+        
+        if($clan == NULL){
+            
+            $return_array['res_code'] = 404;
+            $return_array['msg'] = "조회되지 않는 정보입니다";
+            echo json_encode($return_array);
+            exit;
+        }
+        
+        $return_array['res_code'] = 200;
+        $return_array['msg'] = "조회성공";
+        $return_array['data']['info'] = $clan;
+        echo json_encode($return_array);
+        exit;
+        
+    }
+
 }
 
 
