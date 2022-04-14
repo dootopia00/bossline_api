@@ -286,7 +286,7 @@ $config = array(
             'label' => 'user_pk',
             'rules' => 'required',
             'errors' => array(
-                'required' => 'clan_pk 을 확인해주세요.'
+                'required' => 'user_pk 을 확인해주세요.'
             )
         ) 
     ),

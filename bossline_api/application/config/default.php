@@ -53,9 +53,9 @@ if($_SERVER['HTTP_HOST'])
             $search_ip = 'bossline-maria-db.ce5gwofdrutx.ap-northeast-2.rds.amazonaws.com';
 
             // bossline postgresql
-            $master_ip = 'bossline-db.ce5gwofdrutx.ap-northeast-2.rds.amazonaws.com';
-            $slave_ip =  'bossline-db.ce5gwofdrutx.ap-northeast-2.rds.amazonaws.com';
-            $search_ip = 'bossline-db.ce5gwofdrutx.ap-northeast-2.rds.amazonaws.com';
+            // $master_ip = 'bossline-db.ce5gwofdrutx.ap-northeast-2.rds.amazonaws.com';
+            // $slave_ip =  'bossline-db.ce5gwofdrutx.ap-northeast-2.rds.amazonaws.com';
+            // $search_ip = 'bossline-db.ce5gwofdrutx.ap-northeast-2.rds.amazonaws.com';
         break;
 
     }
@@ -71,15 +71,23 @@ if($_SERVER['HTTP_HOST'])
 // $config['slave_db']['user'] = 'admin';
 // $config['slave_db']['pass'] = 'dooropen2021';
 
-
-// bossline
+// bossline maria db
 $config['master_db']['addr'] = $master_ip;                  
-$config['master_db']['user'] = 'bossline_db';
+$config['master_db']['user'] = 'admin';
 $config['master_db']['pass'] = 'bosslinedev';
 
 $config['slave_db']['addr'] = $slave_ip;                    
-$config['slave_db']['user'] = 'bossline_db';
+$config['slave_db']['user'] = 'admin';
 $config['slave_db']['pass'] = 'bosslinedev';
+
+// bossline postgresql
+// $config['master_db']['addr'] = $master_ip;                  
+// $config['master_db']['user'] = 'bossline_db';
+// $config['master_db']['pass'] = 'bosslinedev';
+
+// $config['slave_db']['addr'] = $slave_ip;                    
+// $config['slave_db']['user'] = 'bossline_db';
+// $config['slave_db']['pass'] = 'bosslinedev';
 
 
 
@@ -93,8 +101,8 @@ $config['dsn']=array();
 // $config['dsn']['slave']   = 'mysqli://'.$config['slave_db']['user'].':'.$config['slave_db']['pass'].'@'.$config['slave_db']['addr'].'/dooropen?charset=utf8&DBCollat=utf8_general_ci&dbdriver=mysqli';
 
 // bossline maria db
-$config['dsn']['master']  = 'mysqli://'.$config['master_db']['user'].':'.$config['master_db']['pass'].'@'.$config['master_db']['addr'].'/bossline?charset=utf8&DBCollat=utf8_general_ci&dbdriver=mysqli';
-$config['dsn']['slave']   = 'mysqli://'.$config['slave_db']['user'].':'.$config['slave_db']['pass'].'@'.$config['slave_db']['addr'].'/bossline?charset=utf8&DBCollat=utf8_general_ci&dbdriver=mysqli';  
+$config['dsn']['master']  = 'mysqli://'.$config['master_db']['user'].':'.$config['master_db']['pass'].'@'.$config['master_db']['addr'].'/bossline_maria_db?charset=utf8&DBCollat=utf8_general_ci&dbdriver=mysqli';
+$config['dsn']['slave']   = 'mysqli://'.$config['slave_db']['user'].':'.$config['slave_db']['pass'].'@'.$config['slave_db']['addr'].'/bossline_maria_db?charset=utf8&DBCollat=utf8_general_ci&dbdriver=mysqli';  
 
 // bossline postgresql 
 // $config['dsn']['master']  = 'postgre://'.$config['master_db']['user'].':'.$config['master_db']['pass'].'@'.$config['master_db']['addr'].':5432/postgres?charset=utf8&connect_timeout=5&sslmode=1';

@@ -10,15 +10,15 @@ class User_mdl extends _Base_Model {
 		parent::__construct();
     }
 
-    public function get_user_id($user_id, $email)
+    public function get_user_info_by_pk($user_id, $email)
     {
         $this->db_connect('slave');
 
-        $sql = "SELECT * FROM bl_user WHERE user_id = ? AND email = ?";
+        $sql = "SELECT * FROM bl_user WHERE user_id = ?";
 
-        $res = $this->db_slave()->query($sql, array($user_id, $email));   
+        $res = $this->db_slave()->query($sql, array($user_id));   
 
-        // echo $this->db_slave()->last_query();exit;
+        echo $this->db_slave()->last_query();exit;
 
         return $res->num_rows() > 0 ? $res->row_array() : NULL;
     }

@@ -77,10 +77,7 @@ class User extends _Base_Controller {
             exit;
             
         }
-
-
         
-
     }
 
 
@@ -90,6 +87,7 @@ class User extends _Base_Controller {
 
         $request = array(
             "user_pk"       => $this->input->post('user_pk') ? $this->input->post('user_pk') : NULL,
+            "authorization" => trim($this->input->post('authorization')),
         );
 
         $this->form_validation->set_data($request);
@@ -102,8 +100,8 @@ class User extends _Base_Controller {
             exit;
         }
 
-        $this->load->model('clan_mdl');
-        $clan = $this->clan_mdl->get_clan_info_by_pk($request['clan_pk']);
+        $this->load->model('user_mdl');
+        $clan = $this->user_mdl->get_user_info_by_pk($request['user_pk']);
         
         if($clan == NULL){
             

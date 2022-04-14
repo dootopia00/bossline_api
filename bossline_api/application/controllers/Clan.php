@@ -17,7 +17,7 @@ class Clan extends _Base_Controller {
         $return_array = array();
 
         $request = array(
-            "user_id"       => trim($this->input->post('user_id')),
+            "user_id"       => trim($this->input->post('user_pk')),
             "authorization" => trim($this->input->post('authorization')),
             "clan_name"     => $this->input->post('clan_name') ? $this->input->post('clan_name') : NULL,
             "clan_level"    => $this->input->post('clan_level') ? $this->input->post('clan_level') : NULL,
@@ -145,7 +145,7 @@ class Clan extends _Base_Controller {
         $return_array = array();
 
         $request = array(
-            "user_id"       => trim($this->input->post('user_id')),
+            "user_pk"       => trim($this->input->post('user_pk')),
             "authorization" => trim($this->input->post('authorization')),
             "clan_pk"       => $this->input->post('clan_pk') ? $this->input->post('clan_pk') : NULL,
             "clan_name"     => $this->input->post('clan_name') ? $this->input->post('clan_name') : NULL,
@@ -183,7 +183,7 @@ class Clan extends _Base_Controller {
         
         //인설트 데이터
         $clan = array(
-            "user_id"       => $request['user_id'],
+            "user_id"       => $request['user_pk'],
             "recruit"       => $request['recruit'],
             "clan_name"     => $request['clan_name'],
             "clan_level"    => $request['clan_level'],
