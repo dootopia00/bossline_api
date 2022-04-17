@@ -14,11 +14,11 @@ class User_mdl extends _Base_Model {
     {
         $this->db_connect('slave');
 
-        $sql = "SELECT * FROM bl_user WHERE user_id = ?";
+        $sql = "SELECT * FROM bl_user WHERE user_id = ? AND email = ? ";
 
-        $res = $this->db_slave()->query($sql, array($user_id));   
+        $res = $this->db_slave()->query($sql, array($user_id, $email));   
 
-        echo $this->db_slave()->last_query();exit;
+        // echo $this->db_slave()->last_query();exit;
 
         return $res->num_rows() > 0 ? $res->row_array() : NULL;
     }
@@ -69,6 +69,19 @@ class User_mdl extends _Base_Model {
         }
 
         return 1;
+    }
+
+    public function get_character_info_by_user_pk($user_id, $email)
+    {
+        $this->db_connect('slave');
+
+        $sql = "SELECT * FROM bl_character WHERE user_id = ? AND email = ? LIMIT 1";
+
+        $res = $this->db_slave()->query($sql, array($user_id, $email));   
+
+        // echo $this->db_slave()->last_query();exit;
+
+        return $res->num_rows() > 0 ? $res->row_array() : NULL;
     }
 
 }

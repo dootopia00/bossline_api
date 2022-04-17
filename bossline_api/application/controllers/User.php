@@ -36,7 +36,7 @@ class User extends _Base_Controller {
         $this->load->model('user_mdl');
         
         // 아이디 유무 체크
-        $user = $this->user_mdl->get_user_id($request['user_id'], $request['email']);
+        $user = $this->user_mdl->get_user_info_by_pk($request['user_id'], $request['email']);
         
         // echo $user;exit;
         
@@ -88,6 +88,7 @@ class User extends _Base_Controller {
         $request = array(
             "user_pk"       => $this->input->post('user_pk') ? $this->input->post('user_pk') : NULL,
             "authorization" => trim($this->input->post('authorization')),
+            "email"         => trim(strtolower($this->input->post('email'))),
         );
 
         $this->form_validation->set_data($request);
@@ -101,7 +102,9 @@ class User extends _Base_Controller {
         }
 
         $this->load->model('user_mdl');
-        $clan = $this->user_mdl->get_user_info_by_pk($request['user_pk']);
+        $clan = $this->user_mdl->get_user_info_by_pk($request['user_pk'], $request['email']);
+
+        $characrter = $this->user_mdl->get_character_info_by_user_pk($request['user_pk'], $request['email']);
         
         if($clan == NULL){
             
@@ -114,6 +117,7 @@ class User extends _Base_Controller {
         $return_array['res_code'] = 200;
         $return_array['msg'] = "조회성공";
         $return_array['data']['info'] = $clan;
+        $return_array['data']['info']['character'] = $characrter;
         echo json_encode($return_array);
         exit;
         
