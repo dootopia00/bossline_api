@@ -68,8 +68,6 @@ function base_init()
                     base_attendance_check();
                 }
 
-                 //회원 최근 접속시간 갱신
-                member_set_last_connect($wiz_member['wm_uid']);
             }
         }
         else
