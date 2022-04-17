@@ -58,7 +58,7 @@ $autoload['packages'] = array();
 |
 |	$autoload['libraries'] = array('user_agent' => 'ua');
 */
-$autoload['libraries'] = array('s3', 'kinesisVideo', 'appPush','oldEncrypt','thumbnail','user_agent','sms','MintQuest', 'DialComm');
+$autoload['libraries'] = array('s3', 'oldEncrypt');
 
 /*
 | -------------------------------------------------------------------
