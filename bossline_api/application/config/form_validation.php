@@ -86,11 +86,11 @@ $config = array(
             )
         ),
         array(
-            'field' => 'recruit',
-            'label' => 'recruit',
+            'field' => 'recruit_yn',
+            'label' => 'recruit_yn',
             'rules' => 'required',
             'errors' => array(
-                'required' => 'recruit 을 확인해주세요.'
+                'required' => 'recruit_yn 을 확인해주세요.'
             )
         ),
         array(
@@ -115,6 +115,14 @@ $config = array(
             'rules' => 'required',
             'errors' => array(
                 'required' => 'clan_level 을 확인해주세요.'
+            )
+        ),
+        array(
+            'field' => 'recruit_type',
+            'label' => 'recruit_type',
+            'rules' => 'required',
+            'errors' => array(
+                'required' => 'recruit_type 을 확인해주세요.'
             )
         ),
         array(
@@ -206,11 +214,11 @@ $config = array(
             )
         ),
         array(
-            'field' => 'recruit',
-            'label' => 'recruit',
+            'field' => 'recruit_yn',
+            'label' => 'recruit_yn',
             'rules' => 'required',
             'errors' => array(
-                'required' => 'recruit 을 확인해주세요.'
+                'required' => 'recruit_yn 을 확인해주세요.'
             )
         ),
         array(

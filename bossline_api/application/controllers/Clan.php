@@ -21,7 +21,8 @@ class Clan extends _Base_Controller {
             "authorization" => trim($this->input->post('authorization')),
             "clan_name"     => $this->input->post('clan_name') ? $this->input->post('clan_name') : NULL,
             "clan_level"    => $this->input->post('clan_level') ? $this->input->post('clan_level') : NULL,
-            "recruit"       => $this->input->post('recruit') ? $this->input->post('recruit') : NULL,
+            "recruit_type"  => $this->input->post('recruit_type') ? $this->input->post('recruit_type') : NULL,
+            "recruit_yn"    => $this->input->post('recruit_yn') ? $this->input->post('recruit_yn') : NULL,
             "server"        => $this->input->post('server') ? $this->input->post('server') : NULL,
             "type"          => $this->input->post('type') ? $this->input->post('type') : NULL,
             "level"         => $this->input->post('level') ? $this->input->post('level') : NULL,
@@ -46,9 +47,10 @@ class Clan extends _Base_Controller {
         //인설트 데이터
         $clan = array(
             "user_id"       => $request['user_id'],
-            "recruit"       => $request['recruit'],
+            "recruit_yn"    => $request['recruit_yn'],
             "clan_name"     => $request['clan_name'],
             "clan_level"    => $request['clan_level'],
+            "recruit_type"  => $request['recruit_type'],
             "server"        => $request['server'],
             "type"          => $request['type'],
             "level"         => $request['level'],
@@ -60,6 +62,14 @@ class Clan extends _Base_Controller {
         );
 
         $clan = $this->clan_mdl->insert_clan($clan);
+
+        if($clan < 0)
+        {
+            $return_array['res_code'] = 500;
+            $return_array['msg'] = "DB ERROR";
+            echo json_encode($return_array);
+            exit;
+        }
 
         $return_array['res_code'] = 200;
         $return_array['msg'] = "등록성공";
