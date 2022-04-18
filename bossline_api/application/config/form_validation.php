@@ -78,6 +78,14 @@ $config = array(
             )
         ),
         array(
+            'field' => 'email',
+            'label' => 'email',
+            'rules' => 'required',
+            'errors' => array(
+                'required' => 'email 을 확인해주세요.'
+            )
+        ),
+        array(
             'field' => 'clan_name',
             'label' => 'clan_name',
             'rules' => 'required',
@@ -170,23 +178,47 @@ $config = array(
     "clan/get_clan_info" => array(
         
         array(
-            'field' => 'clan_pk',
-            'label' => 'clan_pk',
+            'field' => 'user_pk',
+            'label' => 'user_pk',
             'rules' => 'required',
             'errors' => array(
-                'required' => 'clan_pk 을 확인해주세요.'
+                'required' => 'user_pk 을 확인해주세요.'
             )
-        ) 
+        ), 
+        array(
+            'field' => 'authorization',
+            'label' => 'authorization',
+            'rules' => 'required',
+            'errors' => array(
+                'required' => 'authorization 을 확인해주세요.'
+            )
+        ),
+        array(
+            'field' => 'email',
+            'label' => 'email',
+            'rules' => 'required',
+            'errors' => array(
+                'required' => 'email 을 확인해주세요.'
+            )
+        ),
+        array(
+            'field' => 'type',
+            'label' => 'type',
+            'rules' => 'required',
+            'errors' => array(
+                'required' => 'type 을 확인해주세요.'
+            )
+        ),
     ),
 
     "clan/clan_modify" => array(
         
         array(
-            'field' => 'user_id',
-            'label' => 'user_id',
+            'field' => 'user_pk',
+            'label' => 'user_pk',
             'rules' => 'required',
             'errors' => array(
-                'required' => 'user_id 을 확인해주세요.'
+                'required' => 'user_pk 을 확인해주세요.'
             )
         ),
         array(
@@ -198,11 +230,11 @@ $config = array(
             )
         ),
         array(
-            'field' => 'clan_pk',
-            'label' => 'clan_pk',
+            'field' => 'email',
+            'label' => 'email',
             'rules' => 'required',
             'errors' => array(
-                'required' => 'clan_pk 을 확인해주세요.'
+                'required' => 'email 을 확인해주세요.'
             )
         ),
         array(
@@ -211,6 +243,22 @@ $config = array(
             'rules' => 'required',
             'errors' => array(
                 'required' => 'clan_name 을 확인해주세요.'
+            )
+        ),
+        array(
+            'field' => 'clan_level',
+            'label' => 'clan_level',
+            'rules' => 'required',
+            'errors' => array(
+                'required' => 'clan_level 을 확인해주세요.'
+            )
+        ),
+        array(
+            'field' => 'recruit_type',
+            'label' => 'recruit_type',
+            'rules' => 'required',
+            'errors' => array(
+                'required' => 'recruit_type 을 확인해주세요.'
             )
         ),
         array(
@@ -237,14 +285,7 @@ $config = array(
                 'required' => 'type 을 확인해주세요.'
             )
         ),
-        array(
-            'field' => 'clan_level',
-            'label' => 'clan_level',
-            'rules' => 'required',
-            'errors' => array(
-                'required' => 'clan_level 을 확인해주세요.'
-            )
-        ),
+        
         array(
             'field' => 'level',
             'label' => 'level',
