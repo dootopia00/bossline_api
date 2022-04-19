@@ -18,14 +18,13 @@ class Character_mdl extends _Base_Model {
         $sql = "SELECT * FROM bl_character WHERE user_id = ? AND email = ? AND type = ? ";
         
         $res = $this->db_slave()->query($sql, array($request['user_pk'], $request['email'], $request['type']));   
-        // echo $this->db_slave()->last_query();exit;
 
         return $res->num_rows() > 0 ? $res->row_array() : NULL;
     }
     
 
 
-    public function modify_clan($character)
+    public function modify_character($character)
     {
         $this->db_connect('master');
 
@@ -33,12 +32,10 @@ class Character_mdl extends _Base_Model {
 
         $sql = "SELECT * FROM bl_character WHERE user_id = ? AND email = ? AND type = ?";
 
-        $res = $this->db_slave()->query($sql, array($character['user_id'], $character['email'], $character['type']));   
+        $res = $this->db_master()->query($sql, array($character['user_id'], $character['email'], $character['type']));   
         
-        $champ = $res->num_rows() > 0 ? $res->row_array() : NULL;
-
-        if($champ == null){
-        
+        if($res->num_rows() == 0){
+            
             // insert
             
             $this->db_master()->insert('bl_character', $character);
@@ -58,11 +55,9 @@ class Character_mdl extends _Base_Model {
             $this->db_master()->where('type', $character['type']);
     
             $this->db_master()->update('bl_character');
-    
-            $this->db_master()->trans_complete();
         } 
 
-        // echo $this->db_master()->last_query();exit;
+        $this->db_master()->trans_complete();
 
         if ($this->db_master()->trans_status() === FALSE)
         {

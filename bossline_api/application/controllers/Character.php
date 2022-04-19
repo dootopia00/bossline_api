@@ -19,14 +19,14 @@ class Character extends _Base_Controller {
         $request = array(
             "user_pk"       => trim($this->input->post('user_pk')),
             "authorization" => trim($this->input->post('authorization')),
-            "nickname"    => $this->input->post('nickname') ? $this->input->post('nickname') : NULL,
+            "nickname"      => $this->input->post('nickname') ? $this->input->post('nickname') : NULL,
             "clan_name"     => $this->input->post('clan_name') ? $this->input->post('clan_name') : NULL,
-            "defense"          => $this->input->post('defense') ? $this->input->post('defense') : NULL,
-            "level"         => $this->input->post('level') ? $this->input->post('level') : NULL,
+            "defense"       => $this->input->post('defense') ? $this->input->post('defense') : 0,
+            "level"         => $this->input->post('level') ? $this->input->post('level') : 0,
             "job"           => $this->input->post('job') ? $this->input->post('job') : NULL,
-            "change"       => $this->input->post('change') ? $this->input->post('change') : NULL,
+            "change"        => $this->input->post('change') ? $this->input->post('change') : NULL,
             "email"         => $this->input->post('email') ? $this->input->post('email') : NULL,
-            "type"         => $this->input->post('type') ? $this->input->post('type') : NULL,
+            "type"          => $this->input->post('type') ? $this->input->post('type') : NULL,
         );
 
         $this->form_validation->set_data($request);
@@ -39,16 +39,7 @@ class Character extends _Base_Controller {
             exit;
         }
 
-        $this->load->model('character_mdl');
-        $character = $this->clan_mdl->get_character_info_by_request($request);
-        
-        if($character == NULL){
-            
-            $return_array['res_code'] = 404;
-            $return_array['msg'] = "조회되지 않는 정보입니다";
-            echo json_encode($return_array);
-            exit;
-        }
+        // $character = $this->character_mdl->get_character_info_by_request($request);
         
         //수정 데이터
         $character = array(
@@ -60,13 +51,13 @@ class Character extends _Base_Controller {
             "job"           => $request['job'],
             "change"        => $request['change'],
             "email"         => $request['email'],
-            "description"   => $request['description'],
             "type"          => $request['type'],
         );
 
-        $clan = $this->character_mdl->modify_character($character);
+        $this->load->model('character_mdl');
+        $res = $this->character_mdl->modify_character($character);
 
-        if($clan < 0)
+        if($res < 0)
         {
             $return_array['res_code'] = 500;
             $return_array['msg'] = "DB ERROR";
@@ -76,8 +67,8 @@ class Character extends _Base_Controller {
 
 
         $return_array['res_code'] = 200;
-        $return_array['msg'] = "등록성공";
-        $return_array['data']['info'] = $clan;
+        $return_array['msg'] = "성공";
+        $return_array['data'] = $res;
         echo json_encode($return_array);
         exit;
         

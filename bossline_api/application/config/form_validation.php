@@ -58,7 +58,7 @@ $config = array(
             )
         ) 
     ),
-    "clan/clan_py_list" => array(
+    "clan/clan_pay_list" => array(
         
         array(
             'field' => 'type',
