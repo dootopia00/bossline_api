@@ -10,11 +10,15 @@ class Clan_mdl extends _Base_Model {
 		parent::__construct();
     }
 
-    public function get_clan_list($type)
+    public function get_clan_list($type, $where)
     {
         $this->db_connect('slave');
 
-        $sql = "SELECT * FROM bl_clan WHERE type = ?";
+        $sql = "SELECT 
+                    type, clan_name, clan_level, recruit_type, server, 
+                    job, level, defense, description, welfare, reg_date 
+                FROM bl_clan 
+                WHERE type = ? AND pay_yn = 'N' ".$where;
 
         $res = $this->db_slave()->query($sql, array($type));   
 
@@ -23,17 +27,44 @@ class Clan_mdl extends _Base_Model {
         return $res->num_rows() > 0 ? $res->row_array() : NULL;
     }
 
-    public function get_clan_list_count($type)
+    public function get_clan_list_count($type, $where)
     {
         $this->db_connect('slave');
 
-        $sql = "SELECT count(1) FROM bl_clan WHERE type = ?";
+        $sql = "SELECT count(1)  as count FROM bl_clan WHERE type = ? AND pay_yn = 'N' ".$where;
+
+        $res = $this->db_slave()->query($sql, array($type));   
+        // echo $this->db_slave()->last_query();exit;
+
+        return $res->num_rows() > 0 ? $res->row_array() : NULL;
+    }
+
+    public function get_clan_pay_list($type)
+    {
+        $this->db_connect('slave');
+
+        $sql = "SELECT 
+                    type, clan_name, clan_level, recruit_type, server, 
+                    job, level, defense, description, welfare, reg_date 
+                FROM bl_clan WHERE type = ? AND pay_yn = 'Y'";
+
+        $res = $this->db_slave()->query($sql, array($type));   
+
+        // echo $this->db_slave()->last_query();exit;
+
+        return $res->num_rows() > 0 ? $res->row_array() : NULL;
+    }
+
+    public function get_clan_pay_list_count($type)
+    {
+        $this->db_connect('slave');
+
+        $sql = "SELECT count(1) FROM bl_clan WHERE type = ? AND pay_yn = 'Y'";
 
         $res = $this->db_slave()->query($sql, array($type));   
 
         return $res->num_rows() > 0 ? $res->row_array() : NULL;
     }
-
     public function insert_clan($clan)
     {
         $this->db_connect('master');

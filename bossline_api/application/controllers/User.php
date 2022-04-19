@@ -2,6 +2,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 require_once APPPATH.'/controllers/_Base_Controller.php';
 
+
 class User extends _Base_Controller {
 
     public function __construct()

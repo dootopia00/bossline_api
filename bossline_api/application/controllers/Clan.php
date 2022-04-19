@@ -2,6 +2,13 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 require_once APPPATH.'/controllers/_Base_Controller.php';
 
+// 혈원모집 API 
+// 상단 유료 bl_clan -> type, pay_yn = 'Y', recruit_type
+// 하단 bl_clan -> type, recruit_type
+// 서버 정보 API,
+// 검색 API, 
+// 개인정보 저장 API,
+// 더미 데이터 세팅
 class Clan extends _Base_Controller {
 
     public function __construct()
@@ -207,6 +214,44 @@ class Clan extends _Base_Controller {
 
         $request = array(
             "type" => $this->input->post('type') ? $this->input->post('type') : null,
+            "recruit_type" => $this->input->post('recruit_type') ? $this->input->post('recruit_type') : null,
+        );
+
+        $this->form_validation->set_data($request);
+
+        if($this->form_validation->run() == FALSE)
+        {
+            $return_array['res_code'] = 400;
+            $return_array['msg'] = current($this->form_validation->error_array());
+            echo json_encode($return_array);
+            exit;
+        }
+
+        $this->load->model('clan_mdl');
+
+
+        $where = "";
+        if($request['recruit_type'] != null) $where = " AND recruit_type = '".$request['recruit_type']."'";
+        
+        $clan_list = $this->clan_mdl->get_clan_list($request['type'], $where);
+        $clan_list_count = $this->clan_mdl->get_clan_list_count($request['type'], $where);
+
+        $return_array['res_code'] = 200;
+        $return_array['msg'] = "조회성공";
+        $return_array['data']['list'] = $clan_list;
+        $return_array['data']['total_count'] = $clan_list_count['count'];
+        echo json_encode($return_array);
+        exit;
+        
+    }
+    
+    public function clan_pay_list()
+    {
+        $return_array = array();
+
+        $request = array(
+            "type" => $this->input->post('type') ? $this->input->post('type') : null,
+            "recruit_type" => $this->input->post('recruit_type') ? $this->input->post('recruit_type') : null,
         );
 
         $this->form_validation->set_data($request);
@@ -221,8 +266,8 @@ class Clan extends _Base_Controller {
 
         $this->load->model('clan_mdl');
         
-        $clan_list = $this->clan_mdl->get_clan_list($request['type']);
-        $clan_list_count = $this->clan_mdl->get_clan_list_count($request['type']);
+        $clan_list = $this->clan_mdl->get_clan_pay_list($request['type']);
+        $clan_list_count = $this->clan_mdl->get_clan_pay_list_count($request['type']);
 
         $return_array['res_code'] = 200;
         $return_array['msg'] = "조회성공";
@@ -232,7 +277,6 @@ class Clan extends _Base_Controller {
         exit;
         
     }
-    
 
 
 }

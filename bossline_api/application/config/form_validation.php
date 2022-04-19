@@ -58,7 +58,18 @@ $config = array(
             )
         ) 
     ),
-
+    "clan/clan_py_list" => array(
+        
+        array(
+            'field' => 'type',
+            'label' => 'type',
+            'rules' => 'required',
+            'errors' => array(
+                'required' => 'type 을 확인해주세요.'
+            )
+        ),
+        
+    ),
     "clan/clan_insert" => array(
         
         array(
@@ -339,4 +350,34 @@ $config = array(
             )
         ) 
     ),
+
+    "character/character_modify" => array(
+        
+        array(
+            'field' => 'user_pk',
+            'label' => 'user_pk',
+            'rules' => 'required',
+            'errors' => array(
+                'required' => 'user_pk 을 확인해주세요.'
+            )
+        ),
+        array(
+            'field' => 'authorization',
+            'label' => 'authorization',
+            'rules' => 'required',
+            'errors' => array(
+                'required' => 'authorization 을 확인해주세요.'
+            )
+        ),
+        array(
+            'field' => 'type',
+            'label' => 'type',
+            'rules' => 'required',
+            'errors' => array(
+                'required' => 'type 을 확인해주세요.'
+            )
+        ),
+    ),
+
+    
 );
