@@ -278,6 +278,46 @@ class Clan extends _Base_Controller {
         
     }
 
+    public function clan_search()
+    {
+        $return_array = array();
+
+        $request = array(
+            "type"          => $this->input->post('type') ? $this->input->post('type') : null,
+            "defense"       => $this->input->post('defense') ? $this->input->post('defense') : null,
+            "level"         => $this->input->post('level') ? $this->input->post('level') : null,
+            "server"        => $this->input->post('server') ? $this->input->post('server') : null,
+            "recruit_type"  => $this->input->post('recruit_type') ? $this->input->post('recruit_type') : null,
+        );
+
+        $this->form_validation->set_data($request);
+
+        if($this->form_validation->run() == FALSE)
+        {
+            $return_array['res_code'] = 400;
+            $return_array['msg'] = current($this->form_validation->error_array());
+            echo json_encode($return_array);
+            exit;
+        }
+
+        $this->load->model('clan_mdl');
+        
+        $where = '';
+        if($request['recruit_type'] != null) $where .= " AND recruit_type = '{$request['recruit_type']}' ";
+        if($request['server'] != null) $where .= " AND server = {$request['server']} ";
+
+        $clan_list = $this->clan_mdl->search_clan_pay_list($request['type'], $where);
+        $clan_list_count = $this->clan_mdl->search_clan_pay_list_count($request['type'], $where);
+
+        $return_array['res_code'] = 200;
+        $return_array['msg'] = "조회성공";
+        $return_array['data']['list'] = $clan_list;
+        $return_array['data']['total_count'] = $clan_list_count['count'];
+        echo json_encode($return_array);
+        exit;
+        
+    }
+
 
 }
 

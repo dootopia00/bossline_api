@@ -379,5 +379,17 @@ $config = array(
         ),
     ),
 
+    "clan/clan_search" => array(
+        
+        array(
+            'field' => 'type',
+            'label' => 'type',
+            'rules' => 'required',
+            'errors' => array(
+                'required' => 'type 을 확인해주세요.'
+            )
+        ),
+        
+    ),
     
 );
