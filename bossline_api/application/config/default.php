@@ -22,11 +22,6 @@ if($_SERVER['HTTP_HOST'])
         // 개발 디비
         case "localhost:9000":
             
-            // dooropen
-            // $master_ip = 'dooropen-dev.cx1zesoiaqke.ap-northeast-2.rds.amazonaws.com';
-            // $slave_ip = 'dooropen-dev.cx1zesoiaqke.ap-northeast-2.rds.amazonaws.com';
-            // $search_ip = 'dooropen-dev.cx1zesoiaqke.ap-northeast-2.rds.amazonaws.com';
-            
             // bossline maria db
             $master_ip = 'bossline-maria-db.ce5gwofdrutx.ap-northeast-2.rds.amazonaws.com';
             $slave_ip =  'bossline-maria-db.ce5gwofdrutx.ap-northeast-2.rds.amazonaws.com';
@@ -41,11 +36,6 @@ if($_SERVER['HTTP_HOST'])
 
         // 마스터 디비
         case "api.bossline.gg":
-
-            // dooropen
-            // $master_ip = 'dooropen-dev.cx1zesoiaqke.ap-northeast-2.rds.amazonaws.com';
-            // $slave_ip = 'dooropen-dev.cx1zesoiaqke.ap-northeast-2.rds.amazonaws.com';
-            // $search_ip = 'dooropen-dev.cx1zesoiaqke.ap-northeast-2.rds.amazonaws.com';
             
             // bossline maria db
             $master_ip = 'bossline-maria-db.ce5gwofdrutx.ap-northeast-2.rds.amazonaws.com';
@@ -61,15 +51,6 @@ if($_SERVER['HTTP_HOST'])
     }
         
 }
-
-// dooropen
-// $config['master_db']['addr'] = $master_ip;                  
-// $config['master_db']['user'] = 'admin';
-// $config['master_db']['pass'] = 'dooropen2021';
-
-// $config['slave_db']['addr'] = $slave_ip;                    
-// $config['slave_db']['user'] = 'admin';
-// $config['slave_db']['pass'] = 'dooropen2021';
 
 // bossline maria db
 $config['master_db']['addr'] = $master_ip;                  
@@ -95,10 +76,6 @@ $config['slave_db']['pass'] = 'bosslinedev';
 $config['dsn']=array();
 
 ######### dbdriver 는 소문자여야함 mysqli/postgre
-
-// dooropen
-// $config['dsn']['master']  = 'mysqli://'.$config['master_db']['user'].':'.$config['master_db']['pass'].'@'.$config['master_db']['addr'].'/dooropen?charset=utf8&DBCollat=utf8_general_ci&dbdriver=mysqli';
-// $config['dsn']['slave']   = 'mysqli://'.$config['slave_db']['user'].':'.$config['slave_db']['pass'].'@'.$config['slave_db']['addr'].'/dooropen?charset=utf8&DBCollat=utf8_general_ci&dbdriver=mysqli';
 
 // bossline maria db
 $config['dsn']['master']  = 'mysqli://'.$config['master_db']['user'].':'.$config['master_db']['pass'].'@'.$config['master_db']['addr'].'/bossline_maria_db?charset=utf8&DBCollat=utf8_general_ci&dbdriver=mysqli';
