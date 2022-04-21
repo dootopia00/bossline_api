@@ -108,3 +108,5 @@ $config['dsn']['slave']   = 'mysqli://'.$config['slave_db']['user'].':'.$config[
 // $config['dsn']['master']  = 'postgre://'.$config['master_db']['user'].':'.$config['master_db']['pass'].'@'.$config['master_db']['addr'].':5432/postgres?charset=utf8&connect_timeout=5&sslmode=1';
 // $config['dsn']['slave']   = 'postgre://'.$config['slave_db']['user'].':'.$config['slave_db']['pass'].'@'.$config['slave_db']['addr'].':5432/postgres?charset=utf8&connect_timeout=5&sslmode=1';
 
+// postgre://bossline_db:bosslinedev@bossline-db.ce5gwofdrutx.ap-northeast-2.rds.amazonaws.com:5432/postgres
+// postgresql://bossline_db:bosslinedev@bossline-db.ce5gwofdrutx.ap-northeast-2.rds.amazonaws.com:5432/postgres
