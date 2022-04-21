@@ -141,8 +141,41 @@ class Clan_mdl extends _Base_Model {
 
     }
     
-    
+    public function search_clan_pay_list($type, $where)
+    {
+        $this->db_connect('slave');
 
+        $sql = "SELECT 
+                    bc.type, bc.clan_name, bc.clan_level, bc.recruit_type, bc.server, 
+                    bc.job, bc.level, bc.defense, bc.description, bc.welfare, bc.reg_date,
+                    bs.name AS server_name
+                FROM bl_clan bc 
+                LEFT OUTER JOIN bl_server bs ON bc.server = bs.id
+                WHERE bc.type = ? AND pay_yn = 'N' ".$where;
+
+        $res = $this->db_slave()->query($sql, array($type));   
+
+        // echo $this->db_slave()->last_query();exit;
+
+        return $res->num_rows() > 0 ? $res->result_array() : NULL;
+    }
+    
+    public function search_clan_pay_list_count($type, $where)
+    {
+        $this->db_connect('slave');
+
+        $sql = "SELECT 
+                    count(1) as count
+                FROM bl_clan bc 
+                LEFT OUTER JOIN bl_server bs ON bc.server = bs.id
+                WHERE bc.type = ? AND pay_yn = 'N' ".$where;
+
+        $res = $this->db_slave()->query($sql, array($type));   
+
+        // echo $this->db_slave()->last_query();exit;
+
+        return $res->num_rows() > 0 ? $res->row_array() : NULL;
+    }
 
 }
 
